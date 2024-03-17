@@ -1,14 +1,17 @@
 const { Router } = require("express");
 
 const handlePolicies = require("../middleware/handle-policies.middleware");
-const userModel = require("../model/user.model");
+const { userModel, getAllUsers } = require("../model/user.model");
 
 const router = Router();
 
 router.get("/", handlePolicies(["PUBLIC"]), async (req, res) => {
   try {
-    // TODO: AGREGAR ENDPOINT DE GELL ALL USER
-  } catch (error) {}
+    const users = await getAllUsers();
+    res.send(users);
+  } catch (error) {
+    res.status(500).send({ error: `Error al obtener los usuarios ${error}` });
+  }
 });
 
 router.get("/:userId", handlePolicies(["USER", "ADMIN"]), async (req, res) => {

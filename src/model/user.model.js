@@ -54,4 +54,17 @@ userSchema.pre("find", function () {
 });
 
 const userModel = mongoose.model(collection, userSchema);
-module.exports = userModel;
+
+async function getAllUsers() {
+  try {
+    const users = await userModel.find();
+    return users;
+  } catch (error) {
+    // Handle the error
+    console.error(`An error occurred: ${error.message}`);
+    // You can include additional details using interpolation
+    console.error(`Error details: ${error.stack}`);
+  }
+}
+
+module.exports = { userModel, getAllUsers };

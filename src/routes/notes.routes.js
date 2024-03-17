@@ -2,14 +2,14 @@ const { Router } = require("express");
 
 const handlePolicies = require("../middleware/handle-policies.middleware");
 const noteModel = require("../model/notes.model");
-const userModel = require("../model/user.model");
+const { userModel } = require("../model/user.model");
 
 const router = Router();
 
 router.get("/", handlePolicies(["PUBLIC"]), async (req, res) => {
   try {
     // TODO: AGREGAR ENDPOINT GETALL NOTES
-  } catch (error) {}
+  } catch (error) { }
 });
 
 // TODO: Crear un mdw donde el admin pueda consultar cualquiera de sus notas, pero el usuario X no pueda ver las notas del usuario Y
