@@ -24,5 +24,8 @@ Content-Type: application/json
     "password" : "12345"
 }
 
+<<<<<<< HEAD
 ###
+=======
+>>>>>>> ee014f64af164a790d1d96ff9584a98d796850a5
 @Token = {{login.response.message.token}}
