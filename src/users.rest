@@ -1,0 +1,31 @@
+@url = http://localhost:3000
+
+# @name register
+POST {{url}}/api/authentication/register  
+Content-Type: application/json
+
+{
+  "first_name": "Marcelo",
+  "last_name": "Oliveto",
+  "email": "marcelo.oliveto@gmail.com",
+  "age": 53,
+  "role": "ADMIN",
+  "password" : "12345"
+}
+###
+
+# @name login
+
+POST {{url}}/api/authentication/login 
+Content-Type: application/json
+
+{
+    "email": "marcelo.oliveto@gmail.com",
+    "password" : "12345"
+}
+
+<<<<<<< HEAD
+###
+=======
+>>>>>>> ee014f64af164a790d1d96ff9584a98d796850a5
+@Token = {{login.response.message.token}}
