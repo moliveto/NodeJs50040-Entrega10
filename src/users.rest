@@ -9,7 +9,7 @@ Content-Type: application/json
   "last_name": "Oliveto",
   "email": "marcelo.oliveto@gmail.com",
   "age": 53,
-  "role": "ADMIN",
+  "role": "admin",
   "password" : "12345"
 }
 ###
@@ -38,13 +38,77 @@ Content-Type: application/json
 ###
 @first = {{users.response.body.0._id}}
 
-POST {{url}}/api/notes 
+GET {{url}}/api/products/insertion  
+Authorization: Bearer {{access_token}}
+User-Agent: rest-client
+Accept-Language: en-GB,en-US;q=0.8,en;q=0.6,zh-CN;q=0.4
+Content-Type: application/json
+
+###
+
+GET {{url}}/api/products/
+Authorization: Bearer {{access_token}}
+User-Agent: rest-client
+Accept-Language: en-GB,en-US;q=0.8,en;q=0.6,zh-CN;q=0.4
+Content-Type: application/json
+
+###
+# @name products
+GET {{url}}/api/products?limit=10&page=2&sort=asc
+Authorization: Bearer {{access_token}}
+User-Agent: rest-client
+Accept-Language: en-GB,en-US;q=0.8,en;q=0.6,zh-CN;q=0.4
+Content-Type: application/json
+
+###
+@product1 = {{products.response.body.payload.0._id}}
+
+GET {{url}}/api/products/{{product1}}
+Authorization: Bearer {{access_token}}
+User-Agent: rest-client
+Accept-Language: en-GB,en-US;q=0.8,en;q=0.6,zh-CN;q=0.4
+Content-Type: application/json
+
+###
+# @name newProduct
+POST {{url}}/api/products/
 Authorization: Bearer {{access_token}}
 User-Agent: rest-client
 Accept-Language: en-GB,en-US;q=0.8,en;q=0.6,zh-CN;q=0.4
 Content-Type: application/json
 
 {
-  "title" : "Test",
-  "content" : "Nota de prueba"
+  "title" : "Coca cola",
+  "description" : "Bebida cola",
+  "price" : 101.10,
+  "thumbnail" : "cocacola.jpg",
+  "code" : "cocacola",
+  "stock" : 30,
+  "status": true
 }
+###
+@prodAdded = {{newProduct.response.body._id}}
+
+###
+PUT {{url}}/api/products/{{prodAdded}}
+Authorization: Bearer {{access_token}}
+User-Agent: rest-client
+Accept-Language: en-GB,en-US;q=0.8,en;q=0.6,zh-CN;q=0.4
+Content-Type: application/json
+
+{
+  "title" : "Coca cola",
+  "description" : "Bebida cola",
+  "price" : 101.10,
+  "thumbnail" : "cocacola.jpg",
+  "code" : "cocacola",
+  "stock" : 55,
+  "status": true
+}
+###
+
+DELETE {{url}}/api/products/{{prodAdded}}
+Authorization: Bearer {{access_token}}
+User-Agent: rest-client
+Accept-Language: en-GB,en-US;q=0.8,en;q=0.6,zh-CN;q=0.4
+Content-Type: application/json

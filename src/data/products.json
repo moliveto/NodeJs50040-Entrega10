@@ -1,0 +1,492 @@
+[
+  {
+    "title": "Producto 1",
+    "description": "Este es el producto 1",
+    "price": 99.99,
+    "thumbnail": "imagen1.jpg",
+    "code": "abc123",
+    "stock": 50,
+    "status": true,
+    "category": "Electrónica"
+  },
+  {
+    "title": "Producto 2",
+    "description": "Este es el producto 2",
+    "price": 49.99,
+    "thumbnail": "imagen2.jpg",
+    "code": "def456",
+    "stock": 100,
+    "status": true,
+    "category": "Ropa"
+  },
+  {
+    "title": "Producto 3",
+    "description": "Este es el producto 3",
+    "price": 199.99,
+    "thumbnail": "imagen3.jpg",
+    "code": "ghi789",
+    "stock": 25,
+    "status": true,
+    "category": "Electrónica"
+  },
+  {
+    "title": "Producto 4",
+    "description": "Este es el producto 4",
+    "price": 149.99,
+    "thumbnail": "imagen4.jpg",
+    "code": "jkl012",
+    "stock": 75,
+    "status": true,
+    "category": "Hogar y cocina"
+  },
+  {
+    "title": "Smartphone Samsung Galaxy S22",
+    "description": "Potente smartphone con cámara de 108 MP y pantalla OLED de 6.8 pulgadas.",
+    "price": 999.99,
+    "thumbnail": "s22.jpg",
+    "code": "samsungs22",
+    "stock": 100,
+    "status": true,
+    "category": "Electrónica"
+  },
+  {
+    "title": "Camisa Polo Ralph Lauren",
+    "description": "Camisa de algodón de alta calidad con el icónico logo bordado en el pecho.",
+    "price": 79.99,
+    "thumbnail": "polo.jpg",
+    "code": "poloshirt",
+    "stock": 50,
+    "status": true,
+    "category": "Ropa"
+  },
+  {
+    "title": "Robot de Cocina Moulinex Masterchef Gourmet",
+    "description": "Robot de cocina multifunción con 12 programas automáticos y capacidad de 5 litros.",
+    "price": 249.99,
+    "thumbnail": "moulinex.jpg",
+    "code": "masterchef",
+    "stock": 30,
+    "status": true,
+    "category": "Hogar y cocina"
+  },
+  {
+    "title": "Bicicleta de Montaña Specialized Rockhopper",
+    "description": "Bicicleta de montaña con cuadro de aluminio y suspensión delantera ajustable.",
+    "price": 799.99,
+    "thumbnail": "rockhopper.jpg",
+    "code": "rockhopper",
+    "stock": 20,
+    "status": true,
+    "category": "Deporte y ocio"
+  },
+  {
+    "title": "Libro 'Cien años de soledad' de Gabriel García Márquez",
+    "description": "La obra maestra del realismo mágico latinoamericano.",
+    "price": 14.99,
+    "thumbnail": "cien_anos_de_soledad.jpg",
+    "code": "cien_anos_de_soledad",
+    "stock": 100,
+    "status": true,
+    "category": "Libros y entretenimiento"
+  },
+  {
+    "title": "Laptop Lenovo ThinkPad X1 Carbon",
+    "description": "Portátil ultraligero con pantalla 4K y procesador Intel Core i7 de 11ª generación.",
+    "price": 1499.99,
+    "thumbnail": "thinkpad.jpg",
+    "code": "thinkpadx1",
+    "stock": 50,
+    "status": true,
+    "category": "Electrónica"
+  },
+  {
+    "title": "Zapatillas Nike Air Max 270",
+    "description": "Zapatillas deportivas con unidad Max Air en el talón para una amortiguación superior.",
+    "price": 129.99,
+    "thumbnail": "airmax270.jpg",
+    "code": "airmax270",
+    "stock": 100,
+    "status": true,
+    "category": "Ropa"
+  },
+  {
+    "title": "Set de Ollas y Sartenes T-fal",
+    "description": "Set de cocina antiadherente con 12 piezas, apto para todo tipo de cocinas.",
+    "price": 199.99,
+    "thumbnail": "tfal.jpg",
+    "code": "tfalset",
+    "stock": 30,
+    "status": true,
+    "category": "Hogar y cocina"
+  },
+  {
+    "title": "Balón de Fútbol Adidas Copa Mundial",
+    "description": "Réplica del balón oficial de la Copa Mundial de la FIFA, diseñado para un rendimiento excepcional.",
+    "price": 39.99,
+    "thumbnail": "copamundial.jpg",
+    "code": "copamundial",
+    "stock": 40,
+    "status": true,
+    "category": "Deporte y ocio"
+  },
+  {
+    "title": "Set de Herramientas Bosch Professional",
+    "description": "Set de herramientas profesionales con taladro percutor, sierra circular y más.",
+    "price": 499.99,
+    "thumbnail": "boschtools.jpg",
+    "code": "boschprofessional",
+    "stock": 15,
+    "status": true,
+    "category": "Hogar y cocina"
+  },
+  {
+    "title": "Teléfono Inalámbrico Panasonic DECT 6.0",
+    "description": "Teléfono inalámbrico con pantalla LCD y sistema de contestadora integrado.",
+    "price": 49.99,
+    "thumbnail": "panasonicphone.jpg",
+    "code": "panasonicdect",
+    "stock": 60,
+    "status": true,
+    "category": "Electrónica"
+  },
+  {
+    "title": "Cámara Canon EOS Rebel T7i",
+    "description": "Cámara réflex digital con sensor CMOS de 24.2 megapíxeles y pantalla táctil LCD.",
+    "price": 699.99,
+    "thumbnail": "canonrebel.jpg",
+    "code": "canont7i",
+    "stock": 25,
+    "status": true,
+    "category": "Electrónica"
+  },
+  {
+    "title": "Vestido de Noche Largo",
+    "description": "Elegante vestido de noche largo con detalles de encaje y corte ajustado.",
+    "price": 159.99,
+    "thumbnail": "vestidolargo.jpg",
+    "code": "vestidonochelargo",
+    "stock": 20,
+    "status": true,
+    "category": "Ropa"
+  },
+  {
+    "title": "Mesa de Centro de Madera Maciza",
+    "description": "Mesa de centro robusta y elegante con acabado en madera de nogal.",
+    "price": 349.99,
+    "thumbnail": "mesacentro.jpg",
+    "code": "mesacentromadera",
+    "stock": 10,
+    "status": true,
+    "category": "Hogar y cocina"
+  },
+  {
+    "title": "Silla de Oficina Ergonómica",
+    "description": "Silla giratoria ajustable con soporte lumbar y reposabrazos acolchados.",
+    "price": 199.99,
+    "thumbnail": "sillaoficina.jpg",
+    "code": "sillaergonomica",
+    "stock": 30,
+    "status": true,
+    "category": "Hogar y cocina"
+  },
+  {
+    "title": "Tabla de Surf Softboard",
+    "description": "Tabla de surf de espuma para principiantes y surfistas intermedios.",
+    "price": 299.99,
+    "thumbnail": "softboard.jpg",
+    "code": "softboardsurf",
+    "stock": 20,
+    "status": true,
+    "category": "Deporte y ocio"
+  },
+  {
+    "title": "Juego de Maletas Samsonite",
+    "description": "Set de maletas rígidas con ruedas multidireccionales y cerradura TSA.",
+    "price": 399.99,
+    "thumbnail": "samsoniteluggage.jpg",
+    "code": "samsoniteluggage",
+    "stock": 15,
+    "status": true,
+    "category": "Deporte y ocio"
+  },
+  {
+    "title": "Auriculares Inalámbricos Sony WH-1000XM4",
+    "description": "Auriculares con cancelación de ruido adaptativa y hasta 30 horas de autonomía.",
+    "price": 349.99,
+    "thumbnail": "sonyheadphones.jpg",
+    "code": "sonywh1000xm4",
+    "stock": 50,
+    "status": true,
+    "category": "Electrónica"
+  },
+  {
+    "title": "Libro 'El Alquimista' de Paulo Coelho",
+    "description": "Una inspiradora novela sobre seguir nuestros sueños y descubrir nuestro destino.",
+    "price": 9.99,
+    "thumbnail": "elalquimista.jpg",
+    "code": "elalquimista",
+    "stock": 100,
+    "status": true,
+    "category": "Libros y entretenimiento"
+  },
+  {
+    "title": "Sartén Antiadherente de Titanio T-fal",
+    "description": "Sartén de titanio resistente a los arañazos y apta para cocinas de inducción.",
+    "price": 29.99,
+    "thumbnail": "titaniumpan.jpg",
+    "code": "titaniumpan",
+    "stock": 50,
+    "status": true,
+    "category": "Hogar y cocina"
+  },
+  {
+    "title": "Chaqueta de Cuero para Hombre",
+    "description": "Chaqueta de cuero genuino con estilo clásico y forro de poliéster.",
+    "price": 249.99,
+    "thumbnail": "chaquetacuero.jpg",
+    "code": "chaquetacuero",
+    "stock": 20,
+    "status": true,
+    "category": "Ropa"
+  },
+  {
+    "title": "Reloj Inteligente Apple Watch Series 7",
+    "description": "Reloj inteligente con pantalla Retina y seguimiento avanzado de la salud.",
+    "price": 399.99,
+    "thumbnail": "applewatch.jpg",
+    "code": "applewatchseries7",
+    "stock": 30,
+    "status": true,
+    "category": "Electrónica"
+  },
+  {
+    "title": "Bolso Tote de Mujer",
+    "description": "Bolso tote elegante y espacioso con asas de cuero y cierre de cremallera.",
+    "price": 79.99,
+    "thumbnail": "bolso.jpg",
+    "code": "bolsotote",
+    "stock": 40,
+    "status": true,
+    "category": "Ropa"
+  },
+  {
+    "title": "Cafetera Nespresso Vertuo Next",
+    "description": "Cafetera automática con tecnología Centrifusion para preparar café y espresso.",
+    "price": 199.99,
+    "thumbnail": "nespresso.jpg",
+    "code": "nespressonext",
+    "stock": 25,
+    "status": true,
+    "category": "Hogar y cocina"
+  },
+  {
+    "title": "Patinete Eléctrico Xiaomi Mi Electric Scooter Pro 2",
+    "description": "Patinete eléctrico plegable con autonomía de hasta 45 km y velocidad máxima de 25 km/h.",
+    "price": 499.99,
+    "thumbnail": "xiaomiscooter.jpg",
+    "code": "xiaomipro2",
+    "stock": 15,
+    "status": true,
+    "category": "Deporte y ocio"
+  },
+  {
+    "title": "TV LED Samsung 4K Crystal UHD",
+    "description": "Televisor LED de 55 pulgadas con resolución 4K y tecnología Crystal UHD.",
+    "price": 799.99,
+    "thumbnail": "samsungtv.jpg",
+    "code": "samsungtv4k",
+    "stock": 30,
+    "status": true,
+    "category": "Electrónica"
+  },
+  {
+    "title": "Vaqueros Levi's 501 Original Fit",
+    "description": "Vaqueros clásicos de corte recto y ajuste regular, fabricados en denim resistente.",
+    "price": 59.99,
+    "thumbnail": "levisjeans.jpg",
+    "code": "levis501",
+    "stock": 50,
+    "status": true,
+    "category": "Ropa"
+  },
+  {
+    "title": "Juego de Sartenes Antiadherentes T-fal",
+    "description": "Set de sartenes antiadherentes de aluminio con revestimiento cerámico.",
+    "price": 79.99,
+    "thumbnail": "t-falsartenes.jpg",
+    "code": "t-falsartenes",
+    "stock": 25,
+    "status": true,
+    "category": "Hogar y cocina"
+  },
+  {
+    "title": "Cámara GoPro HERO10 Black",
+    "description": "Cámara de acción con capacidad de grabación 5.3K y estabilización HyperSmooth 4.0.",
+    "price": 499.99,
+    "thumbnail": "goprohero10.jpg",
+    "code": "goprohero10",
+    "stock": 20,
+    "status": true,
+    "category": "Electrónica"
+  },
+  {
+    "title": "Mochila de Senderismo North Face",
+    "description": "Mochila de senderismo resistente al agua con capacidad de 40 litros.",
+    "price": 129.99,
+    "thumbnail": "northfacemochila.jpg",
+    "code": "northfacehiking",
+    "stock": 40,
+    "status": true,
+    "category": "Deporte y ocio"
+  },
+  {
+    "title": "Altavoz Bluetooth JBL Flip 5",
+    "description": "Altavoz portátil resistente al agua con hasta 12 horas de reproducción continua.",
+    "price": 99.99,
+    "thumbnail": "jblflip5.jpg",
+    "code": "jblflip5",
+    "stock": 30,
+    "status": true,
+    "category": "Electrónica"
+  },
+  {
+    "title": "Traje de Baño de Dos Piezas",
+    "description": "Conjunto de top y braguita de bikini con estampado floral y tirantes ajustables.",
+    "price": 39.99,
+    "thumbnail": "bikiniswimsuit.jpg",
+    "code": "bikiniswimsuit",
+    "stock": 60,
+    "status": true,
+    "category": "Ropa"
+  },
+  {
+    "title": "Cafetera de Goteo Philips Grind & Brew",
+    "description": "Cafetera programable con molinillo integrado y jarra térmica de acero inoxidable.",
+    "price": 199.99,
+    "thumbnail": "philipscoffeemaker.jpg",
+    "code": "philipsgrindbrew",
+    "stock": 25,
+    "status": true,
+    "category": "Hogar y cocina"
+  },
+  {
+    "title": "Sofá Reclinable de Cuero",
+    "description": "Sofá de 3 plazas con asientos reclinables eléctricos y tapizado en cuero genuino.",
+    "price": 1499.99,
+    "thumbnail": "leathersofa.jpg",
+    "code": "reclinablesofa",
+    "stock": 15,
+    "status": true,
+    "category": "Hogar y cocina"
+  },
+  {
+    "title": "Patines en Línea Rollerblade Zetrablade",
+    "description": "Patines en línea para principiantes con bota moldeable y sistema de cierre seguro.",
+    "price": 99.99,
+    "thumbnail": "rollerblades.jpg",
+    "code": "rollerbladezetrablade",
+    "stock": 20,
+    "status": true,
+    "category": "Deporte y ocio"
+  },
+  {
+    "title": "Set de Cuchillos de Chef Zwilling",
+    "description": "Set de cuchillos de cocina forjados en acero inoxidable con mango ergonómico.",
+    "price": 149.99,
+    "thumbnail": "zwillingknifeset.jpg",
+    "code": "zwillingchefknives",
+    "stock": 25,
+    "status": true,
+    "category": "Hogar y cocina"
+  },
+  {
+    "title": "Smartwatch Garmin Forerunner 945",
+    "description": "Smartwatch con GPS y monitor de frecuencia cardíaca para entrenamientos avanzados.",
+    "price": 599.99,
+    "thumbnail": "garminforerunner945.jpg",
+    "code": "garminforerunner945",
+    "stock": 30,
+    "status": true,
+    "category": "Electrónica"
+  },
+  {
+    "title": "Silla Gaming Corsair T3 Rush",
+    "description": "Silla de gaming con diseño ergonómico, espuma de alta densidad y reposabrazos ajustables.",
+    "price": 299.99,
+    "thumbnail": "corsairgamingchair.jpg",
+    "code": "corsairt3rush",
+    "stock": 40,
+    "status": true,
+    "category": "Hogar y cocina"
+  },
+  {
+    "title": "Gafas de Sol Ray-Ban Aviator",
+    "description": "Gafas de sol clásicas con montura de metal dorado y lentes polarizadas.",
+    "price": 159.99,
+    "thumbnail": "raybanaviator.jpg",
+    "code": "raybanaviator",
+    "stock": 35,
+    "status": true,
+    "category": "Ropa"
+  },
+  {
+    "title": "Aspiradora Robot Roomba i7+",
+    "description": "Aspiradora robot con mapeo inteligente y base de autovaciado automático.",
+    "price": 799.99,
+    "thumbnail": "roombai7plus.jpg",
+    "code": "roombai7plus",
+    "stock": 15,
+    "status": true,
+    "category": "Hogar y cocina"
+  },
+  {
+    "title": "Pantalones de Chándal Adidas",
+    "description": "Pantalones de chándal cómodos con el icónico logo de Adidas y bolsillos con cremallera.",
+    "price": 49.99,
+    "thumbnail": "adidastrackpants.jpg",
+    "code": "adidastrackpants",
+    "stock": 50,
+    "status": true,
+    "category": "Ropa"
+  },
+  {
+    "title": "Batería Externa Anker PowerCore 26800mAh",
+    "description": "Batería externa de alta capacidad con tecnología de carga rápida PowerIQ.",
+    "price": 59.99,
+    "thumbnail": "ankerbattery.jpg",
+    "code": "ankerpowercore",
+    "stock": 40,
+    "status": true,
+    "category": "Electrónica"
+  },
+  {
+    "title": "Colchón de Espuma Viscoelástica",
+    "description": "Colchón de 10 pulgadas con capa de gel refrescante y soporte ergonómico.",
+    "price": 399.99,
+    "thumbnail": "memoryfoammattress.jpg",
+    "code": "memoryfoammattress",
+    "stock": 20,
+    "status": true,
+    "category": "Hogar y cocina"
+  },
+  {
+    "title": "Caja de Herramientas Craftsman de 450 Piezas",
+    "description": "Caja de herramientas completa con llaves, destornilladores, alicates y más.",
+    "price": 499.99,
+    "thumbnail": "craftsmantoolbox.jpg",
+    "code": "craftsmantoolbox",
+    "stock": 10,
+    "status": true,
+    "category": "Hogar y cocina"
+  },
+  {
+    "title": "Jersey de Lana Merina Uniqlo",
+    "description": "Jersey de lana merina de alta calidad con cuello redondo y ajuste cómodo.",
+    "price": 79.99,
+    "thumbnail": "uniqlojersey.jpg",
+    "code": "uniqlojersey",
+    "stock": 30,
+    "status": true,
+    "category": "Ropa"
+  }
+]

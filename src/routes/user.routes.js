@@ -5,7 +5,7 @@ const { userModel, getAllUsers } = require("../model/user.model");
 
 const router = Router();
 
-router.get("/", handlePolicies(["PUBLIC"]), async (req, res) => {
+router.get("/", handlePolicies(["public"]), async (req, res) => {
   try {
     const users = await getAllUsers();
     res.send(users);
@@ -14,7 +14,7 @@ router.get("/", handlePolicies(["PUBLIC"]), async (req, res) => {
   }
 });
 
-router.get("/:userId", handlePolicies(["USER", "ADMIN"]), async (req, res) => {
+router.get("/:userId", handlePolicies(["user", "admin"]), async (req, res) => {
   try {
     // TODO: VALIDAR EL ID DE LOS PARAMETROS, Q TENGA LA FORMA DE UN ID EN MONGOOSE
 
@@ -32,7 +32,7 @@ router.get("/:userId", handlePolicies(["USER", "ADMIN"]), async (req, res) => {
 // ADD Note to an user, se podria quitar el parametro userId (pensarlo y probarlo)
 router.post(
   "/:userId/notes/:noteId",
-  handlePolicies(["USER", "ADMIN"]),
+  handlePolicies(["user", "admin"]),
   async (req, res) => {
     try {
       const { noteId, userId } = req.params;
@@ -46,7 +46,7 @@ router.post(
         userData
       );
       return res.json({
-        message: `getUserById for USER ROLE`,
+        message: `getUserById for user role`,
         user: updateUser,
       });
     } catch (error) {
@@ -57,15 +57,15 @@ router.post(
 
 // TODO: Hacer update del usuario (sin actualizar el password)
 
-router.delete("/:userId", handlePolicies(["ADMIN"]), async (req, res) => {
+router.delete("/:userId", handlePolicies(["admin"]), async (req, res) => {
   console.log(
-    "🚀 ~ file: user.routes.js:36 ~ aqui solo entra el ADMIN",
+    "🚀 ~ file: user.routes.js:36 ~ aqui solo entra el admin",
     req.user
   );
   try {
     const deleteUser = await userModel.deleteOne({ _id: req.params.userId });
     return res.json({
-      message: `deleteUserById with ROLE ADMIN`,
+      message: `deleteUserById with ROLE admin`,
       user: deleteUser,
     });
   } catch (error) {

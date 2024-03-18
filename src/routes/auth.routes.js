@@ -1,7 +1,7 @@
 const { Router } = require("express");
 
-const { userModel, getAllUsers } = require("../model/user.model");
-const { createHashValue, isValidPasswd } = require("../utils/encrypt");
+const { userModel } = require("../model/user.model");
+const { isValidPasswd } = require("../utils/encrypt");
 const { generateJWT } = require("../utils/jwt");
 
 const router = Router();
@@ -25,13 +25,12 @@ router.post("/login", async (req, res) => {
       return res.status(401).json({ message: `credenciales invalidas` });
     }
     const {
-      password: passwordFromDB,
       first_name,
       last_name,
       email: emailDb,
       age,
       role,
-      notes,
+      carts,
     } = findUser;
 
     const token = await generateJWT({
@@ -40,7 +39,7 @@ router.post("/login", async (req, res) => {
       email: emailDb,
       age,
       role,
-      notes,
+      carts,
       id: findUser._id,
     });
 
@@ -54,16 +53,15 @@ router.post("/login", async (req, res) => {
 router.post("/register", async (req, res) => {
   try {
     const { first_name, last_name, email, age, password, role } = req.body;
-    // TODO: Validar todos los campos del body
-    const pswHashed = await createHashValue(password);
 
+    // TODO: Validar todos los campos del body
     const newUser = await userModel.create({
       first_name,
       last_name,
       email,
       age,
       role,
-      password: pswHashed,
+      password: password,
     });
 
     // TODO: Validar que se creo correctamente

@@ -7,7 +7,9 @@ const passport = require("passport");
 // Internal imports
 const authRoutes = require("./routes/auth.routes");
 const userRoutes = require("./routes/user.routes");
-const notesRoutes = require("./routes/notes.routes");
+const cartRoutes = require("./routes/carts.routes");
+const prodRoutes = require("./routes/products.routes");
+//const notesRoutes = require("./routes/notes.routes");
 const initializePassport = require("./config/pasport.config");
 
 const app = express();
@@ -15,7 +17,7 @@ const app = express();
 const PORT = 3000;
 const DB_HOST = "localhost";
 const DB_PORT = 27017;
-const DB_NAME = "mongoPracticaIntegradora2";
+const DB_NAME = "entrega10";
 
 const MONGO_URL = `mongodb://${DB_HOST}:${DB_PORT}/${DB_NAME}`;
 
@@ -30,7 +32,9 @@ app.use(passport.initialize());
 // Base Routes
 app.use("/api/authentication", authRoutes);
 app.use("/api/users/", userRoutes);
-app.use("/api/notes/", notesRoutes);
+//app.use("/api/notes/", notesRoutes);
+app.use("/api/carts/", cartRoutes);
+app.use("/api/products/", prodRoutes);
 
 mongoose
     .connect(MONGO_URL)

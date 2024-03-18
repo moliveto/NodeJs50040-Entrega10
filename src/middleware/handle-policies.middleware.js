@@ -2,8 +2,8 @@ const passport = require("passport");
 
 function handlePolicies(policies) {
   return (req, res, next) => {
-    // Verificar si la única política es "PUBLIC"
-    if (policies.length === 1 && policies[0] === "PUBLIC") {
+    // Verificar si la única política es "public"
+    if (policies.length === 1 && policies[0] === "public") {
       return next();
     }
 

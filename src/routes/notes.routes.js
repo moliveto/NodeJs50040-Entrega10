@@ -6,14 +6,14 @@ const { userModel } = require("../model/user.model");
 
 const router = Router();
 
-router.get("/", handlePolicies(["PUBLIC"]), async (req, res) => {
+router.get("/", handlePolicies(["public"]), async (req, res) => {
   try {
     // TODO: AGREGAR ENDPOINT GETALL NOTES
   } catch (error) { }
 });
 
 // TODO: Crear un mdw donde el admin pueda consultar cualquiera de sus notas, pero el usuario X no pueda ver las notas del usuario Y
-router.get("/:noteId", handlePolicies(["USER", "ADMIN"]), async (req, res) => {
+router.get("/:noteId", handlePolicies(["user", "admin"]), async (req, res) => {
   try {
     const noteData = await noteModel.findById({ _id: req.params.noteId });
     // TODO: si no viene info de la nota mandar un respuesta adecuada
@@ -24,7 +24,7 @@ router.get("/:noteId", handlePolicies(["USER", "ADMIN"]), async (req, res) => {
   }
 });
 
-router.post("/", handlePolicies(["USER", "ADMIN"]), async (req, res) => {
+router.post("/", handlePolicies(["user", "admin"]), async (req, res) => {
   try {
     const bodyNotes = req.body;
     // TODO: Agregar validaciones para la creacion de la nota
@@ -58,7 +58,7 @@ router.post("/", handlePolicies(["USER", "ADMIN"]), async (req, res) => {
   }
 });
 
-router.delete("/:noteId", handlePolicies(["ADMIN"]), async (req, res) => {
+router.delete("/:noteId", handlePolicies(["admin"]), async (req, res) => {
   try {
     // TODO: Recordar validar el noteId
 
