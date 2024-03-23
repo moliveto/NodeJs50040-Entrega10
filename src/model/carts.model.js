@@ -9,10 +9,8 @@ const cartSchema = new mongoose.Schema({
                     ref: "products"
                     //required: true
                 },
-                quantity: {
-                    type: Number
-                    //required: true
-                }
+                quantity: { type: Number, default: 1 },
+                _id: false,
             },
         ],
         default: [],
@@ -26,4 +24,26 @@ cartSchema.pre('findOne', function () {
 const collectionName = 'carts';
 const cartModel = mongoose.model(collectionName, cartSchema);
 
-module.exports = cartModel;
+async function GetAllCarts() {
+    try {
+        const carts = await cartModel.find();
+        return carts;
+    } catch (error) {
+        const errMessage = 'Error al obtener los carritos';
+        throw new Error(`${errMessage}: ${error.message}`);
+    }
+}
+
+async function CreateCart(newCart) {
+    try {
+        //console.log(newCart);
+        const cart = new cartModel(newCart);
+        const savedCart = await cart.save();
+        return savedCart;
+    } catch (error) {
+        const errMessage = 'Error al crear el carrito';
+        throw new Error(`${errMessage}: ${error.message}`);
+    }
+}
+
+module.exports = { cartModel, GetAllCarts, CreateCart };

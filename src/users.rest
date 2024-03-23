@@ -14,6 +14,20 @@ Content-Type: application/json
 }
 ###
 
+# @name register_User
+POST {{url}}/api/authentication/register  
+Content-Type: application/json
+
+{
+  "first_name": "test",
+  "last_name": "test",
+  "email": "test@gmail.com",
+  "age": 25,
+  "role": "user",
+  "password" : "12345"
+}
+###
+
 # @name login
 
 POST {{url}}/api/authentication/login 
@@ -112,3 +126,35 @@ Authorization: Bearer {{access_token}}
 User-Agent: rest-client
 Accept-Language: en-GB,en-US;q=0.8,en;q=0.6,zh-CN;q=0.4
 Content-Type: application/json
+###
+
+GET  {{url}}/api/carts
+Authorization: Bearer {{access_token}}
+User-Agent: rest-client
+Accept-Language: en-GB,en-US;q=0.8,en;q=0.6,zh-CN;q=0.4
+Content-Type: application/json
+###
+
+###
+# @name productForCard
+GET {{url}}/api/products?limit=1&page=1&sort=asc
+Authorization: Bearer {{access_token}}
+User-Agent: rest-client
+Accept-Language: en-GB,en-US;q=0.8,en;q=0.6,zh-CN;q=0.4
+Content-Type: application/json
+
+###
+@productCart = {{productForCard.response.body.payload.0._id}}
+
+# @name newCart
+
+POST  {{url}}/api/carts
+Authorization: Bearer {{access_token}}
+User-Agent: rest-client
+Accept-Language: en-GB,en-US;q=0.8,en;q=0.6,zh-CN;q=0.4
+Content-Type: application/json
+
+{
+    "product" : "{{productCart}}",
+    "quantity" : 1
+}

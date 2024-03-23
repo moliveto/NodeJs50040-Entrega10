@@ -1,11 +1,13 @@
 const { Router } = require("express");
-const { CartModel } = require("../model/carts.model");
+const handlePolicies = require("../middleware/handle-policies.middleware");
+const { cartModel, GetAllCarts, CreateCart } = require("../model/carts.model");
+const { userModel } = require("../model/user.model");
 
 const router = Router();
 
 router.get('/', async (req, res) => {
     try {
-        const carts = await CartModel.find();
+        const carts = await GetAllCarts();
         res.send(carts);
     } catch (error) {
         console.error(error);
@@ -28,15 +30,26 @@ router.get('/:pid', async (req, res) => {
     }
 });
 
-router.post('/', async (req, res) => {
+router.post('/', handlePolicies(["user", "admin"]), async (req, res) => {
     try {
-        const newCart = req.body;
-        const cart = new CartModel(newCart);
-        const savedCart = await cart.save();
+        const { user: { id } } = req.user;
+        const newCart = { products: [{ product: req.body.product, quantity: req.body.quantity }] };
+        const cart = await CreateCart(newCart);
+
+        const userData = await userModel.findById({ _id: id });
+        userData.carts.push({ cart: cart._id });
+        const updatedCart = await userModel.updateOne({ _id: id }, userData);
+
+        if (!updatedCart.acknowledged) {
+            return res.status(500).json({
+                message: `error al actualizar el cart del usuario`,
+            });
+        }
+
         res.json({
             ok: true,
             message: 'Cart added',
-            cart: savedCart,
+            cart: cart,
         });
     } catch (error) {
         console.error(error);
