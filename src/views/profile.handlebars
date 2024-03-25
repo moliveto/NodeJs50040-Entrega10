@@ -1,0 +1,33 @@
+<div>
+  <h1>Perfil de usuario</h1>
+
+  <p>{{this.firstName}}</p>
+  <p>{{this.lastName}}</p>
+  <p>{{this.email}}</p>
+  <p>{{this.age}}</p>
+  <p>{{this.role}}</p>
+
+  <div>
+    <form action="/api/session/logout" method="get">
+      <br />
+      <button type="submit">logout</button>
+    </form>
+  </div>
+
+</div>
+
+<br>
+
+<div class="d-flex justify-content-between align-items-center">
+  <div class="col">
+    <h5><a href="/">Home</a></h5>
+  </div>
+
+  <div class="col">
+    <h5><a href="/products/">Ver productos</a></h5>
+  </div>
+
+  <div class="col">
+    <h5><a href="/api/session/logout">Logout</a></h5>
+  </div>
+</div>

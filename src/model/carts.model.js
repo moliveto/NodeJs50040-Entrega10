@@ -10,6 +10,7 @@ const cartSchema = new mongoose.Schema({
                     //required: true
                 },
                 quantity: { type: Number, default: 1 },
+                closed: { type: Boolean, default: false },
                 _id: false,
             },
         ],
@@ -46,4 +47,53 @@ async function CreateCart(newCart) {
     }
 }
 
-module.exports = { cartModel, GetAllCarts, CreateCart };
+async function AddProduct(cid, pid, quantity) {
+
+    try {
+
+        console.log(`${cid} ${pid} ${quantity}`);
+
+        const cart = await CartModel.findById(cid);
+        console.log(cart);
+        const product = await ProductsModel.findById(pid);
+        console.log(product);
+
+        if (!cart) {
+            throw new Error(`No existe el cart ${cid}`);
+        }
+        if (!product) {
+            throw new Error(`No existe el producto ${pid}`);
+        }
+
+        const index = cart.products.findIndex(prod => prod.product === pid);
+        console.log(`resultado index ${index}`);
+        if (index !== -1) {
+            cart.products[index].quantity = quantity + cart.products[index].quantity
+        } else {
+            cart.products.push({ product: pid, quantity: quantity });
+        }
+
+        await CartModel.findOneAndUpdate({ _id: cid }, cart)
+        return { status: "success", message: "Producto Agregado", producto: cart }
+
+    } catch (error) {
+        return { status: "addProduct failed", message: error.message }
+    }
+}
+
+async function DeleteByCidAndPid(cid, pid) {
+    try {
+        const deletedCart = await CartModel.findOneAndUpdate(
+            { _id: cid }, // Filter by cart ID
+            { $pull: { products: { product: pid } } }, // Remove product with pid from products array
+            { new: true } // Return the updated cart document
+        );
+        return deletedCart;
+    } catch (error) {
+        const errMessage = `Error al eliminar el carrito por cid ${cid}  y pid ${pid} `;
+        throw new Error(`${errMessage}: ${error.message}`);
+    }
+}
+
+
+module.exports = { cartModel, GetAllCarts, CreateCart, AddProduct, DeleteByCidAndPid };

@@ -1,10 +1,12 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const handlebars = require("express-handlebars");
 const cookieParser = require("cookie-parser");
 const displayRoutes = require("express-routemap");
 const passport = require("passport");
 
 // Internal imports
+const viewsRoutes = require("./routes/views.routes");
 const authRoutes = require("./routes/auth.routes");
 const userRoutes = require("./routes/user.routes");
 const cartRoutes = require("./routes/carts.routes");
@@ -29,12 +31,15 @@ app.use(cookieParser());
 initializePassport();
 app.use(passport.initialize());
 
-// Base Routes
+app.engine("handlebars", handlebars.engine());
+app.set("views", __dirname + "/views");
+app.set("view engine", "handlebars");
+
 app.use("/api/authentication", authRoutes);
 app.use("/api/users/", userRoutes);
-//app.use("/api/notes/", notesRoutes);
 app.use("/api/carts/", cartRoutes);
 app.use("/api/products/", prodRoutes);
+app.use("/", viewsRoutes);
 
 mongoose
     .connect(MONGO_URL)

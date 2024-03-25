@@ -1,11 +1,11 @@
 const { Router } = require("express");
 const handlePolicies = require("../middleware/handle-policies.middleware");
-const { cartModel, GetAllCarts, CreateCart } = require("../model/carts.model");
+const { cartModel, GetAllCarts, CreateCart, AddProduct, DeleteByCidAndPid } = require("../model/carts.model");
 const { userModel } = require("../model/user.model");
 
 const router = Router();
 
-router.get('/', async (req, res) => {
+router.get('/', handlePolicies(["admin"]), async (req, res) => {
     try {
         const carts = await GetAllCarts();
         res.send(carts);
@@ -15,20 +15,11 @@ router.get('/', async (req, res) => {
     }
 });
 
-router.get('/:pid', async (req, res) => {
-    try {
-        const pid = req.params.pid;
-        const cart = await CartModel.findById(cartId);
-        if (cart) {
-            res.send(cart);
-        } else {
-            res.status(404).send('Cart not found');
-        }
-    } catch (error) {
-        console.error(error);
-        res.status(500).send(`Error retrieving cart: ${error}`);
-    }
-});
+router.get("/:cid", handlePolicies(["user", "admin"]), async (req, res) => {
+    const cid = req.params.cid
+    const cart = await cartModel.find({ _id: cid }).populate("products.product", { title: 1, price: 1, stock: 1, code: 1 });
+    res.status(200).send({ cart });
+})
 
 router.post('/', handlePolicies(["user", "admin"]), async (req, res) => {
     try {
@@ -57,11 +48,11 @@ router.post('/', handlePolicies(["user", "admin"]), async (req, res) => {
     }
 });
 
-router.delete("/:cid/product/:pid", async (req, res) => {
+router.delete("/:cid/product/:pid", handlePolicies(["user", "admin"]), async (req, res) => {
     try {
         const pid = req.params.pid;
         const cid = req.params.cid
-        await cartManager.deleteByCidAndPid(cid, pid);
+        await DeleteByCidAndPid(cid, pid);
         res.json({
             ok: true,
             message: 'Cart deleted',
@@ -72,12 +63,12 @@ router.delete("/:cid/product/:pid", async (req, res) => {
     }
 });
 
-router.put('/:cid', async (req, res) => {
+router.put('/:cid', handlePolicies(["user", "admin"]), async (req, res) => {
     const { cid } = req.params;
     const { products } = req.body;
 
     try {
-        const cart = await CartModel.findByIdAndUpdate(
+        const cart = await cartModel.findByIdAndUpdate(
             cid,
             { $set: { products } },
             { new: true } // Retorna el documento actualizado
@@ -94,12 +85,12 @@ router.put('/:cid', async (req, res) => {
     }
 });
 
-router.put('/:cid/products/:pid', async (req, res) => {
+router.put('/:cid/products/:pid', handlePolicies(["user", "admin"]), async (req, res) => {
     const { cid, pid } = req.params;
     const { quantity } = req.body;
 
     try {
-        const cart = await CartModel.findById(cid);
+        const cart = await cartModel.findById(cid);
 
         if (!cart) {
             return res.status(404).send({ error: 'Carrito no encontrado' });
@@ -122,11 +113,11 @@ router.put('/:cid/products/:pid', async (req, res) => {
     }
 });
 
-router.delete('/:cid', async (req, res) => {
+router.delete('/:cid', handlePolicies(["user", "admin"]), async (req, res) => {
     const { cid } = req.params;
 
     try {
-        const cart = await CartModel.findByIdAndUpdate(cid, { $set: { products: [] } });
+        const cart = await cartModel.findByIdAndUpdate(cid, { $set: { products: [] } });
 
         if (!cart) {
             return res.status(404).send({ error: 'Carrito no encontrado' });
@@ -139,10 +130,5 @@ router.delete('/:cid', async (req, res) => {
     }
 });
 
-router.get("/:cid", async (req, res) => {
-    const cid = req.params.cid
-    const cart = await CartModel.find({ _id: cid }).populate("products.product", { title: 1, price: 1, stock: 1, code: 1 });
-    res.status(200).send({ cart });
-})
 
 module.exports = router;

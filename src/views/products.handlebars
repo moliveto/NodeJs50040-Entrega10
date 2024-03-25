@@ -1,0 +1,50 @@
+{{!-- {{console.log(products)}} --}}
+<div class="container">
+    <table id="productsTable">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Título</th>
+                <th scope="col">Descripción</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Thumbnail</th>
+                <th scope="col">Código</th>
+                <th scope="col">Stock</th>
+                <th scope="col">Category</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each products}}
+            {{#each this as |yValue yKey|}}
+            <tr>
+                <td>{{this._id}}</td>
+                <td>{{this.title}}</td>
+                <td>{{this.description}}</td>
+                <td>{{this.price}}</td>
+                <td>{{this.thumbnail}}</td>
+                <td>{{this.code}}</td>
+                <td>{{this.stock}}</td>
+                <td>{{this.categoy}}</td>
+            </tr>
+            {{/each}}
+            {{/each}}
+        </tbody>
+    </table>
+</div>
+
+
+<br>
+
+<div class="d-flex justify-content-between align-items-center">
+    <div class="col">
+        <h5><a href="/">Home</a></h5>
+    </div>
+
+    <div class="col">
+        <h5><a href="/profile/">Profile</a></h5>
+    </div>
+
+    <div class="col">
+        <h5><a href="/api/session/logout">Logout</a></h5>
+    </div>
+</div>
