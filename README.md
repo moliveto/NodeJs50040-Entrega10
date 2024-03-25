@@ -10,4 +10,4 @@ install https://marketplace.visualstudio.com/items?itemName=humao.rest-client
 
 For test with users.rest API flow
 
-[(https://github.com/moliveto/NodeJs50040-Entrega10/blob/main/src/users.rest) - src/users.rest]
+[(https://github.com/moliveto/NodeJs50040-Entrega10/blob/main/src/workflow.rest) - src/users.rest]
