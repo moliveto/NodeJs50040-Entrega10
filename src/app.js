@@ -1,9 +1,10 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const handlebars = require("express-handlebars");
-const cookieParser = require("cookie-parser");
-const displayRoutes = require("express-routemap");
 const passport = require("passport");
+const cookieParser = require("cookie-parser");
+const handlebars = require("express-handlebars");
+const session = require("express-session");
+const displayRoutes = require("express-routemap");
 
 // Internal imports
 const viewsRoutes = require("./routes/views.routes");

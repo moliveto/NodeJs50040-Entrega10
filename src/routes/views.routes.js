@@ -1,50 +1,33 @@
-const { Router } = require("express");
-const { getAllProducts, } = require("../model/products.model");
-const { authMdw, auth } = require("../middleware/auth.middleware");
-
-const router = Router();
+const express = require('express');
+const router = express.Router();
+const passport = require('passport');
 
 router.get("/", (req, res) => {
   res.render("index", {})
 })
 
-router.get(`/login`, async (req, res) => {
-  res.render("login");
+// Ruta de registro
+router.get('/register', (req, res) => {
+  res.render('register');
 });
 
-router.get(`/register`, async (req, res) => {
-  res.render("register");
+// Ruta de login
+router.get('/login', (req, res) => {
+  res.render('login');
 });
 
-// TODO: Crear u usar middleware de autorizacion
-router.get(`/profile`, auth(['user', 'admin']), async (req, res) => {
+// Ruta de registro de usuario
+router.post('/register', passport.authenticate('register', {
+  successRedirect: '/login',
+  failureRedirect: '/register',
+  failureFlash: true
+}));
 
-  // console.log(doc);
-  const doc = req.session?.user?._doc;
-  const user = {
-    firstName: doc?.first_name,
-    lastName: doc?.last_name,
-    email: doc?.email,
-    age: doc?.age,
-    role: doc?.role
-  }
-  // console.log(user);
-
-  res.render("profile", {
-    firstName: req.session?.user?.first_name || user.first_name,
-    lastName: req.session?.user?.last_name || user.last_name,
-    email: req.session?.user?.email || user.email,
-    age: req.session?.user?.age || user.age,
-    role: req.session?.user?.role || user.role
-  });
-  // res.render("profile", { user });
-});
-
-
-router.get("/products", auth(['admin']), async (req, res) => {
-  const products = await getAllProducts()
-  //console.log(products);
-  res.render("products", { products });
-})
+// Ruta de login de usuario
+router.post('/login', passport.authenticate('login', {
+  successRedirect: '/pagina_protegida',
+  failureRedirect: '/login',
+  failureFlash: true
+}));
 
 module.exports = router;
