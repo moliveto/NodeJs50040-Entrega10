@@ -11,6 +11,7 @@ const JWTStrategy = jwt.Strategy;
 const ExtractJWT = jwt.ExtractJwt;
 
 const initializePassport = () => {
+  /*
   passport.use(
     "register",
     new localStrategy(
@@ -51,7 +52,8 @@ const initializePassport = () => {
               .json({ message: `we have some issues register this user` });
           }
 
-          return done(null, newUser);
+          return res.redirect("/login");
+
         } catch (error) {
           return done(`error getting user ${error}`);
         }
@@ -75,7 +77,10 @@ const initializePassport = () => {
             return done(null, false);
           }
 
-          if (!isValidPasswd(passport, user.password)) {
+          console.log(password);
+          console.log(user.password);
+
+          if (!isValidPasswd(password, user.password)) {
             console.log('User password it not the same in DB');
             return done(null, false);
           }
@@ -89,6 +94,7 @@ const initializePassport = () => {
       }
     )
   );
+  */
 
   passport.use(
     "jwt",

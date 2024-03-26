@@ -17,17 +17,17 @@ router.get('/login', (req, res) => {
 });
 
 // Ruta de registro de usuario
-router.post('/register', passport.authenticate('register', {
-  successRedirect: '/login',
-  failureRedirect: '/register',
-  failureFlash: true
-}));
+// router.post('/register', passport.authenticate('register', {
+//   successRedirect: '/login',
+//   failureRedirect: '/register',
+//   failureFlash: true
+// }));
 
-// Ruta de login de usuario
-router.post('/login', passport.authenticate('login', {
-  successRedirect: '/pagina_protegida',
-  failureRedirect: '/login',
-  failureFlash: true
-}));
+// // Ruta de login de usuario
+// router.post('/login', passport.authenticate('jwt', {
+//   successRedirect: '/profile',
+//   failureRedirect: '/login',
+//   failureFlash: true
+// }));
 
 module.exports = router;
