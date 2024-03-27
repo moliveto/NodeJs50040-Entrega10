@@ -31,7 +31,7 @@ const initializePassport = () => {
       async (payload, done) => {
         //console.log("jwtPayload:", payload);
         const user = payload.user;
-        console.log(user);
+        //console.log(user);
         if (!user) {
           return done(null, false);
         }

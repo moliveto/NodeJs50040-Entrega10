@@ -49,7 +49,6 @@ router.post("/login", async (req, res) => {
   }
 });
 
-// TODO: Crear una local strategy para el registro
 router.post("/register", async (req, res) => {
   try {
     const { first_name, last_name, email, age, password, role } = req.body;
@@ -71,7 +70,7 @@ router.post("/register", async (req, res) => {
 
     return res.json({ message: `usuario creado`, user: newUser });
   } catch (error) {
-    console.log("🚀 ~ file: auth.routes.js:55 ~ router.post ~ error:", error);
+    console.log("error:", error);
   }
 });
 

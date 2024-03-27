@@ -68,4 +68,31 @@ router.get('/register', (req, res) => {
   res.render('register');
 });
 
+router.post("/register", async (req, res) => {
+  try {
+    const { first_name, last_name, email, age, password, role } = req.body;
+
+    // TODO: Validar todos los campos del body
+    const newUser = await userModel.create({
+      first_name,
+      last_name,
+      email,
+      age,
+      role,
+      password: password,
+    });
+
+    // TODO: Validar que se creo correctamente
+    if (!newUser) {
+      // Manejar el error
+    }
+
+    //return res.json({ message: `usuario creado`, user: newUser });
+    res.redirect('/login');
+  } catch (error) {
+    console.log("error:", error);
+    res.json("error:", error);
+  }
+});
+
 module.exports = router;
