@@ -5,6 +5,7 @@ NodeJs Comision 50040 Entrega10 (Segunda practica integradora)
 - npm i
 - docker-compose up
 - npm run start:dev
+- http://localhost:3000
 
 install https://marketplace.visualstudio.com/items?itemName=humao.rest-client
 
