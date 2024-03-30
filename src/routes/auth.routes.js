@@ -63,11 +63,6 @@ router.post("/register", async (req, res) => {
       password: password,
     });
 
-    // TODO: Validar que se creo correctamente
-    if (!newUser) {
-      // Manejar el error
-    }
-
     return res.json({ message: `usuario creado`, user: newUser });
   } catch (error) {
     console.log("error:", error);

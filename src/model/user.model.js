@@ -9,7 +9,6 @@ const roleType = {
   public: "public",
 };
 
-
 const userSchema = new mongoose.Schema({
   first_name: {
     type: String,
@@ -61,17 +60,6 @@ const userSchema = new mongoose.Schema({
     ],
     default: [],
   },
-  // notes: {
-  //   type: [
-  //     {
-  //       note: {
-  //         type: mongoose.Schema.Types.ObjectId,
-  //         ref: "notes",
-  //       },
-  //     },
-  //   ],
-  //   default: [],
-  // },
 },
   {
     timestamps: true, // Automatically adds timestamps for created/updated at
